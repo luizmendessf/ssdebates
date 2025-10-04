@@ -165,7 +165,11 @@ const Simulador = () => {
 
   const startTimer = () => setIsRunning(true);
   const pauseTimer = () => setIsRunning(false);
-  const skipStage = () => { setIsRunning(false); setTimeLeft(0); };
+  const skipStage = () => { 
+    setIsRunning(false);
+    // Avança diretamente para a próxima fala sem mostrar timeLeft = 0
+    nextStage();
+  };
 
   const nextStage = () => {
     if (currentStage < stages.length - 1) {
