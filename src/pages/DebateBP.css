@@ -1,0 +1,285 @@
+/* ============================================== */
+/* --- ESTILOS DA PÁGINA DEBATE BP --- */
+/* ============================================== */
+
+/* --- ESTRUTURA GERAL DA PÁGINA --- */
+.bp-page {
+  background-color: #f8fafc;
+  color: #334155;
+}
+
+.bp-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.bp-section:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.bp-page .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.bp-page .section-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #1e293b;
+  margin-bottom: 24px;
+}
+
+.bp-page .section-title .highlight, .bp-page .main-title .highlight {
+  font-weight: 600;
+  color: var(--green-primary-color);
+}
+
+.bp-page .section-intro {
+  max-width: 800px;
+  margin: 0 auto 48px auto;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.text-container {
+  max-width: 800px;
+}
+
+.text-container p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* --- HERO SECTION --- */
+.bp-page .hero-section {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+.bp-page .hero-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .bp-page .hero-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* --- PDF SECTION --- */
+.bp-page .hero-pdf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.bp-page .pdf-viewer {
+  width: 80%;
+  max-width: 420px;
+  height: 554px;
+  aspect-ratio: 210/297;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  background: white;
+  border: 1px solid #e0e0e0;
+}
+
+.bp-page .pdf-viewer iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.bp-page .pdf-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--blue-primary-color), var(--green-primary-color));
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.bp-page .pdf-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  background: linear-gradient(135deg, var(--green-primary-color), var(--blue-primary-color));
+}
+
+@media (max-width: 1023px) {
+  .bp-page .hero-pdf {
+    order: -1;
+  }
+  
+  .bp-page .pdf-viewer {
+    height: 420px;
+    max-width: 300px;
+    aspect-ratio: 210/297;
+  }
+}
+
+.bp-page .main-title {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #1e293b;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.bp-page .subtitle {
+  font-size: 1.25rem;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.bp-page .hero-image-wrapper {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.bp-page .hero-image {
+  object-fit: cover;
+}
+
+/* --- ESTRUTURA / REGRAS --- */
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+}
+
+.rule-card {
+  text-align: center;
+  padding: 24px;
+}
+
+.rule-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(16, 185, 129, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+}
+
+.rule-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--green-primary-color);
+}
+
+.rule-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+/* --- ORADORES --- */
+.speakers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .speakers-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.speaker-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.speaker-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.speaker-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.speaker-order {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blue-primary-color);
+}
+
+.speaker-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.speaker-team {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 16px;
+}
+
+.speaker-role {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* --- LUZES DE FUNDO --- */
+/* (Reutilizando as mesmas classes e animação do Simulador) */
+.bp-page .background-lights {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0; overflow: hidden; pointer-events: none;
+}
+.bp-page .light {
+  position: absolute; border-radius: 50%;
+  filter: blur(150px); will-change: transform;
+  animation: softGlow 25s ease-in-out infinite alternate;
+  opacity: 0.6;
+}
+.bp-page .lightsim-1 { background-color: var(--blue-primary-color); width: 500px; height: 500px; top: -10%; left: -10%; animation-delay: 0s; }
+.bp-page .lightsim-2 { background-color: var(--green-primary-color); width: 400px; height: 400px; bottom: -15%; right: 10%; animation-delay: -8s; }
+.bp-page .lightsim-3 { background-color: var(--yellow-primary-color); width: 450px; height: 450px; bottom: 20%; left: 20%; animation-delay: -16s; }
+
+@keyframes softGlow {
+  from { transform: scale(1) translate(0, 0); }
+  to { transform: scale(1.2) translate(40px, -30px); }
+}

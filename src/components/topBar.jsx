@@ -24,7 +24,7 @@ export default function TopBar() {
       <nav>
         <ul>
           <li><a href="/">Início</a></li>
-          <li><a href="/conquistas">Conquistas</a></li>
+          <li><a href="/sobrenos">Sobre Nós</a></li>
           <li><a href="/modelo">Modelo BP</a></li>
           <li><a href="/entrevistas">Entrevistas</a></li>
           <li><a href="/simulador">Simulador</a></li>
