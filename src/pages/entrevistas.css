@@ -1,0 +1,93 @@
+/*ENTREVISTAS*/
+.entrevistas-section {
+    padding: 10% 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #035AA6;
+    margin: 15px auto 0;
+  }
+  
+  .entrevistas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .entrevista-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .entrevista-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  .entrevista-info {
+    padding: 20px;
+  }
+  
+  .entrevista-info h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 1.3rem;
+  }
+  
+  .entrevista-info p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .entrevista-date {
+    display: block;
+    font-size: 0.8rem;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .entrevistas-container {
+        grid-template-columns: 1fr;
+    }
+  }
+  /*ENTREVISTAS*/

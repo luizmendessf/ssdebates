@@ -1,0 +1,39 @@
+/* src/components/Linhas.css */
+
+/* Regra de posicionamento do container (permanece a mesma) */
+.linhas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; 
+}
+
+/* Nova animação para fazer as formas aparecerem (fade-in) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estilo base para cada uma das 8 formas */
+.forma-animada {
+  opacity: 0; /* Começam invisíveis */
+  animation-name: fadeIn;
+  animation-duration: 0.8s; /* Duração da animação de fade */
+  animation-fill-mode: forwards; /* Mantém a forma visível no final */
+}
+
+/* Atraso (delay) para cada forma aparecer em sequência */
+.forma-animada:nth-child(1) { animation-delay: 0s; }
+.forma-animada:nth-child(2) { animation-delay: 0.1s; }
+.forma-animada:nth-child(3) { animation-delay: 0.2s; }
+.forma-animada:nth-child(4) { animation-delay: 0.3s; }
+.forma-animada:nth-child(5) { animation-delay: 0s; }
+.forma-animada:nth-child(6) { animation-delay: 0.1s; }
+.forma-animada:nth-child(7) { animation-delay: 0.2s; }
+.forma-animada:nth-child(8) { animation-delay: 0.3s; }

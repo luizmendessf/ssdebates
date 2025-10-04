@@ -1,0 +1,77 @@
+/* Estilo geral do footer */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    padding: 2%;
+    background-color: #035AA6;
+    color: white;
+    width: 100%;
+    margin-top: auto;
+  }
+  
+  /* Container principal do conteúdo do footer */
+  .footer-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+  }
+  
+
+  
+  .texto-com-icones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaço entre o título e os ícones */
+  }
+  
+  /* Título principal do footer */
+  .pfooter {
+    margin: 0;
+    text-align: left;
+    position: relative; /* Necessário para o traço se posicionar abaixo dele */
+    padding-bottom: 15px; /* Espaço entre o texto e o traço */
+  }
+  
+  /* Traço horizontal abaixo do título */
+  .pfooter::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Posiciona o traço na parte de baixo */
+    width: 150px; /* Largura do traço */
+    height: 3px; /* Grossura do traço */
+    background-color: white;
+  }
+  
+  /* Itens de redes sociais (ícone + texto) */
+  .social-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .social-item img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+  }
+  
+  .social-item span {
+    font-size: 14px;
+  }
+  
+  .social-item:hover img {
+    transform: scale(1.1);
+  }
+  
+  /* Container da logo no final do footer */
+  .logo-final {
+    align-self: center;
+    height: auto;
+  }

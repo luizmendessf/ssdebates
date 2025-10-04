@@ -1,0 +1,323 @@
+/* ============================================== */
+/* --- HERO SECTION ATUALIZADA --- */
+/* ============================================== */
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.light {
+  position: absolute;
+  border-radius: 1%;
+  opacity: 0.7;
+  filter: blur(150px);
+  will-change: transform;
+}
+
+/* Usando suas variáveis de cor oficiais do index.css */
+.light-1 {
+  background-color: var(--blue-primary-color);
+  width: 800px;
+  height: 650px;
+  top: -25%;
+  left: -10%;
+}
+
+.light-2 {
+  background-color: var(--green-primary-color);
+  width: 650px;
+  height: 350px;
+  bottom: -10%;
+  left: -8%;
+}
+
+.light-3 {
+  background-color: var(--yellow-primary-color);
+  width: 600px;
+  height: 500px;
+  bottom: 15%;
+  right: -15%;
+}
+
+
+
+/* Conteúdo central */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.hero-logo img {
+  max-width: 650px;
+  width: 80vw;
+  height: auto;
+  margin-bottom: 2rem;
+  transition: transform 0.4s ease;
+}
+
+.hero-logo:hover img {
+    transform: scale(1.05);
+}
+
+
+/* What We Do Section */
+.what-we-do-section {
+  padding: 6rem 0;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--blue-primary-color);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.tabs-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.tab-buttons {
+  display: flex;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.tab-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 3rem;
+  align-items: center;
+}
+
+.content-image {
+  text-align: center;
+}
+
+.content-image img {
+  max-width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.content-text h3 {
+  font-size: 2rem;
+  color: var(--blue-primary-color);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.content-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* ============================================== */
+/* --- NOVOS ESTILOS (REDES SOCIAIS E SETA) --- */
+/* ============================================== */
+
+/* Novo estilo para os botões de redes sociais */
+.social-links {
+  display: flex;
+  gap: 2rem; /* Aumenta o espaço entre os botões */
+}
+
+.social-link {
+  width: 60px; /* Largura do botão */
+  height: 60px; /* Altura do botão */
+  border-radius: 50%; /* Deixa o botão redondo */
+  background-color: rgba(255, 255, 255, 0.4); /* Fundo branco semi-transparente */
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-5px) scale(1.05); /* Efeito de elevação */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.social-link img {
+  width: 32px; /* Tamanho do ícone dentro do botão */
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+/* Estilos para o indicador de rolagem */
+.scroll-down-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  cursor: pointer;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #888; /* Cor da seta para contrastar com o branco */
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) rotate(45deg);
+  }
+  40% {
+    transform: translateY(-15px) rotate(45deg);
+  }
+  60% {
+    transform: translateY(-8px) rotate(45deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-logo img {
+    max-width: 350px;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .tab-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .tab-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-logo img {
+    max-width: 280px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+
+
+/* ============================================== */
+/* --- ANIMAÇÃO PARA AS LUZES DE FUNDO --- */
+/* ============================================== */
+
+/* 1. Definindo a animação */
+@keyframes softGlow {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.7;
+  }
+  50% {
+    /* AUMENTAMOS OS VALORES DE SCALE E TRANSLATE */
+    transform: scale(1.25) translate(40px, -35px); 
+    opacity: 0.5; /* Diminuímos mais a opacidade para um "pulso" mais forte */
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.7;
+  }
+}
+
+/* 2. Aplicando a animação a TODAS as luzes */
+.light {
+  position: absolute;
+  border-radius: 1%;
+  opacity: 0.7;
+  filter: blur(150px);
+  will-change: transform;
+  
+  /* A DURAÇÃO FOI ALTERADA DE 25s PARA 15s */
+  animation: softGlow 15s ease-in-out infinite alternate; 
+}
+
+/* 3. Sincronizando as luzes para não se moverem juntas */
+/* Adicionamos um atraso diferente para cada uma, criando um efeito mais natural */
+.light-1 {
+  animation-delay: 0s;
+}
+
+.light-2 {
+  animation-delay: -8s; /* O delay negativo faz a animação começar em um ponto diferente do ciclo */
+}
+
+.light-3 {
+  animation-delay: -16s;
+}

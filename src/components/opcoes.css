@@ -1,0 +1,83 @@
+/* Modern Tab Button Styling */
+.tab-buttons {
+  display: flex;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  border-radius: 20px 20px 0 0;
+}
+
+.tab-buttons button {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  border: none;
+  background: transparent;
+  color: #666;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border-radius: 0;
+}
+
+.tab-buttons button:first-child {
+  border-radius: 20px 0 0 0;
+}
+
+.tab-buttons button:last-child {
+  border-radius: 0 20px 0 0;
+}
+
+.tab-buttons button:hover {
+  background: rgba(3, 90, 166, 0.05);
+  color: var(--blue-primary-color);
+}
+
+.tab-buttons button.active {
+  background: white;
+  color: var(--blue-primary-color);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tab-buttons button.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-primary-color), var(--green-primary-color), var(--yellow-primary-color));
+}
+
+/* Responsive Design for Tabs */
+@media (max-width: 768px) {
+  .tab-buttons {
+    flex-direction: column;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .tab-buttons button {
+    border-radius: 0 !important;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .tab-buttons button:first-child {
+    border-radius: 20px 20px 0 0 !important;
+  }
+  
+  .tab-buttons button:last-child {
+    border-bottom: none;
+  }
+  
+  .tab-buttons button.active::after {
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue-primary-color), var(--green-primary-color), var(--yellow-primary-color));
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-buttons button {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}

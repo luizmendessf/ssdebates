@@ -1,0 +1,53 @@
+/* TopBar.css */
+.topbar {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    position: fixed;
+    opacity: 80%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 35px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var( --blue-primary-color); /* cor inicial */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .logoMenu {
+    position: absolute;
+    left: 20px;
+    padding: 10px;
+  }
+
+  .logoMenu img {
+    max-width: 55%;
+  }
+  
+  .topbar.scrolled {
+    background-color: var(--background-color);
+    color: var(--blue-primary-color);
+  }
+ 
+  .topbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .topbar nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .topbar nav ul li a:hover {
+    opacity: 0.8;
+  }
+  

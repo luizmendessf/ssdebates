@@ -1,0 +1,112 @@
+/* src/components/FormularioContato.css */
+
+.form-container {
+    width: 90%;
+    max-width: 700px; /* Largura máxima para o formulário */
+    margin: 10% auto; /* Espaçamento acima e abaixo */
+    padding: 3rem;
+    background-color: #f8f9fa; /* Um fundo quase branco para destacar */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.form-header h1 {
+    font-size: 45px;
+    color: var(--text-color-dark);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+/* Linha de destaque abaixo do título, como no resto do site */
+.form-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--blue-primary-color);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #495057;
+    font-weight: 600;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--blue-primary-color);
+    box-shadow: 0 0 0 3px rgba(3, 90, 166, 0.2);
+}
+
+/* Botão de envio */
+.form-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--blue-primary-color);
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-button:hover {
+    background-color: #024a8d; /* Um azul um pouco mais escuro */
+    transform: translateY(-2px);
+}
+
+.form-success {
+    text-align: center;
+  }
+  
+  .form-success h3 {
+    color: var(--green-primary-color, #3B8C2E); /* Usa a cor verde do site, se definida */
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-error {
+    color: #d90429; /* Um vermelho para erros */
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .form-container {
+        width: 100%;
+        padding: 2rem 1.5rem;
+        margin: 15% auto;
+    }
+
+    .form-header h1 {
+        font-size: 36px;
+    }
+}

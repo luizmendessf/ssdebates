@@ -1,0 +1,89 @@
+.imgcomtxt {
+    width: 90%;
+    margin: 15% auto 10% auto;
+    display: flex;
+    align-items: center; 
+    gap: 50px; /* Aumentei um pouco o espaço */
+}
+
+/* =================================== */
+/* BLOCO DE TEXTO    */
+/* =================================== */
+.texto-imgtxt {
+    flex: 1; 
+    text-align: center; /* Centraliza o h1 que agora é inline-block */
+}
+
+.texto-imgtxt h1 {
+    /* Esta é a única regra para o H1 */
+    font-size: 45px;
+    margin-bottom: 5%;
+    
+    /* Essencial para o ::after funcionar */
+    position: relative; 
+    padding-bottom: 15px;
+    display: inline-block; 
+}
+
+.texto-imgtxt p {
+    margin: 2%;
+    color: #030303; /* Cinza escuro para o parágrafo, para contraste suave */
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.texto-imgtxt h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20%;
+    height: 5px;
+    background-color: rgb(0, 0, 0);
+}
+
+
+/* =================================== */
+/* BLOCO DE IMAGEM             */
+/* =================================== */
+.img-imgtxt {
+    /* Faz a imagem ocupar a outra metade do espaço */
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.img-imgtxt img {
+    width: 100%; /* Faz a imagem ter a largura total do seu container (.img-imgtxt) */
+    max-width: 500px; /* Limita o tamanho máximo da imagem para não ficar gigante em telas grandes */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 3px 3px 12px 1px #00000061;
+}
+
+/* =================================== */
+/* LAYOUT RESPONSIVO           */
+/* =================================== */
+@media (max-width: 768px) {
+    .imgcomtxt {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    /* No mobile, não precisamos mais de flex:1 */
+    .texto-imgtxt, .img-imgtxt {
+      flex: none;
+      width: 100%;
+    }
+  
+    .img-imgtxt {
+        margin-top: 40px; /* Adiciona um espaço entre o texto e a imagem no mobile */
+    }
+
+    .img-imgtxt img {
+      width: 90%; /* A imagem ocupa 90% da largura da tela */
+    }
+}
