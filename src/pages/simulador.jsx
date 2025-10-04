@@ -102,14 +102,14 @@ const Simulador = () => {
 
   const stages = [
     { name: 'Tempo de Preparação', duration: 900 },
-    { name: 'Primeiro Ministro', duration: 435 },
-    { name: 'Líder da Oposição', duration: 435 },
-    { name: 'Vice Primeiro Ministro', duration: 435 },
-    { name: 'Vice Líder da Oposição', duration: 435 },
-    { name: 'Membro do Governo', duration: 435 },
-    { name: 'Membro da Oposição', duration: 435 },
-    { name: 'Whip do Governo', duration: 435 },
-    { name: 'Whip da Oposição', duration: 435 }
+    { name: 'Primeiro Ministro', duration: 375 },
+    { name: 'Líder da Oposição', duration: 375 },
+    { name: 'Vice Primeiro Ministro', duration: 375 },
+    { name: 'Vice Líder da Oposição', duration: 375 },
+    { name: 'Membro do Governo', duration: 375 },
+    { name: 'Membro da Oposição', duration: 375 },
+    { name: 'Whip do Governo', duration: 375 },
+    { name: 'Whip da Oposição', duration: 375 }
   ];
 
   const playTick = () => {
