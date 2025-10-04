@@ -1,9 +1,20 @@
 /*ENTREVISTAS*/
-.entrevistas-section {
-    padding: 10% 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+.videos-page {
+  padding: 120px 20px 20px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.entrevistas-section,
+.formacoes-section {
+  padding: 40px 0;
+  margin-bottom: 60px;
+}
+
+.formacoes-section {
+  border-top: 2px solid #e0e0e0;
+  padding-top: 60px;
+}
   
   .section-title {
     text-align: center;
@@ -81,7 +92,230 @@
     margin-top: 10px;
   }
   
-  @media (max-width: 768px) {
+  /* Estilos do Carousel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  padding: 0 80px;
+}
+
+.entrevistas-section .carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.entrevistas-section .carousel-content-three {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 400px;
+}
+
+.carousel-track-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    max-width: 800px;
+  }
+  
+  .carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+  }
+  
+  .entrevista-slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  .carousel-content-three {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .formation-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+  
+  .main-card {
+    flex: 0 0 50%;
+    transform: scale(1);
+    z-index: 3;
+    position: relative;
+  }
+  
+  .main-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .side-card {
+    flex: 0 0 30%;
+    transform: scale(0.85);
+    opacity: 0.7;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .side-card:hover {
+    transform: scale(0.9);
+    opacity: 0.9;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .left-card {
+    transform-origin: right center;
+  }
+  
+  .right-card {
+    transform-origin: left center;
+  }
+
+/* Estilos para entrevista-card no carrossel */
+.entrevista-card {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.entrevistas-section .main-card {
+  flex: 0 0 50%;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.entrevistas-section .side-card {
+  flex: 0 0 30%;
+  transform: scale(0.85);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.entrevistas-section .main-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.entrevistas-section .side-card:hover {
+  transform: scale(0.9);
+  opacity: 0.9;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.entrevista-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.formation-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.formation-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.carousel-btn {
+  background: #035AA6;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(3, 90, 166, 0.3);
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.carousel-btn-prev {
+  left: 20px;
+}
+
+.carousel-btn-next {
+  right: 20px;
+}
+
+.carousel-btn:hover:not(:disabled) {
+  background: #024080;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 12px rgba(3, 90, 166, 0.4);
+}
+
+.carousel-btn:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #035AA6;
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  background: #024080;
+}
+
+@media (max-width: 768px) {
     .section-title {
         font-size: 2rem;
     }
@@ -89,5 +323,68 @@
     .entrevistas-container {
         grid-template-columns: 1fr;
     }
+
+    .carousel-container {
+       padding: 0 40px;
+     }
+
+     .carousel-track-container {
+       max-width: 100%;
+       padding: 0 20px;
+     }
+
+     .entrevista-slide,
+     .formation-slide {
+       padding: 0 10px;
+     }
+
+     .carousel-content-three,
+     .entrevistas-section .carousel-content-three {
+       flex-direction: column;
+       gap: 15px;
+       margin: 0;
+       width: 100%;
+     }
+
+     .main-card,
+     .entrevistas-section .main-card {
+       flex: none;
+       width: 100%;
+       transform: scale(1) !important;
+     }
+
+     .side-card,
+     .entrevistas-section .side-card {
+       display: none;
+     }
+
+     .carousel-btn {
+       width: 35px;
+       height: 35px;
+       font-size: 16px;
+     }
+
+     .carousel-btn-prev {
+       left: 5px;
+     }
+
+     .carousel-btn-next {
+       right: 5px;
+     }
+
+     .formation-info h3,
+     .entrevista-info h3 {
+       font-size: 1.1rem;
+     }
+
+     .carousel-indicators {
+       gap: 8px;
+       margin-top: 15px;
+     }
+
+     .indicator {
+       width: 8px;
+       height: 8px;
+     }
   }
   /*ENTREVISTAS*/
