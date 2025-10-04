@@ -6,6 +6,7 @@
   position: relative;
   height: 100vh;
   width: 100%;
+  max-width: 100vw;
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -24,7 +25,7 @@
 .light {
   position: absolute;
   border-radius: 1%;
-  opacity: 0.7;
+  opacity: 0.9;
   filter: blur(150px);
   will-change: transform;
 }
@@ -32,24 +33,30 @@
 /* Usando suas variáveis de cor oficiais do index.css */
 .light-1 {
   background-color: var(--blue-primary-color);
-  width: 800px;
-  height: 650px;
-  top: -25%;
-  left: -10%;
+  width: 60vw;
+  max-width: 800px;
+  height: 50vh;
+  max-height: 650px;
+  top: -20%;
+  left: -5%;
 }
 
 .light-2 {
   background-color: var(--green-primary-color);
-  width: 650px;
-  height: 350px;
-  bottom: -10%;
-  left: -8%;
+  width: 50vw;
+  max-width: 650px;
+  height: 30vh;
+  max-height: 350px;
+  bottom: -5%;
+  left: -15%;
 }
 
 .light-3 {
   background-color: var(--yellow-primary-color);
-  width: 600px;
-  height: 500px;
+  width: 55vw;
+  max-width: 650px;
+  height: 40vh;
+  max-height: 500px;
   bottom: 15%;
   right: -15%;
 }
@@ -84,12 +91,17 @@
 .what-we-do-section {
   padding: 6rem 0;
   background: #ffffff;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .container {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 .section-header {
@@ -162,13 +174,13 @@
 /* --- NOVOS ESTILOS (REDES SOCIAIS E SETA) --- */
 /* ============================================== */
 
-/* Novo estilo para os botões de redes sociais */
-.social-links {
+/* Novo estilo para os botões de redes sociais na seção hero */
+.hero-section .social-links {
   display: flex;
   gap: 2rem; /* Aumenta o espaço entre os botões */
 }
 
-.social-link {
+.hero-section .social-link {
   width: 60px; /* Largura do botão */
   height: 60px; /* Altura do botão */
   border-radius: 50%; /* Deixa o botão redondo */
@@ -182,13 +194,13 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.social-link:hover {
+.hero-section .social-link:hover {
   background-color: rgba(255, 255, 255, 0.7);
   transform: translateY(-5px) scale(1.05); /* Efeito de elevação */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.social-link img {
+.hero-section .social-link img {
   width: 32px; /* Tamanho do ícone dentro do botão */
   height: 32px;
   transition: transform 0.3s ease;
@@ -286,9 +298,9 @@
     opacity: 0.7;
   }
   50% {
-    /* AUMENTAMOS OS VALORES DE SCALE E TRANSLATE */
-    transform: scale(1.25) translate(40px, -35px); 
-    opacity: 0.5; /* Diminuímos mais a opacidade para um "pulso" mais forte */
+    /* Reduzindo os valores de translate para evitar overflow */
+    transform: scale(1.15) translate(15px, -15px); 
+    opacity: 0.5;
   }
   100% {
     transform: scale(1) translate(0, 0);

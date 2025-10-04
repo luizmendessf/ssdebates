@@ -1,77 +1,154 @@
-/* Estilo geral do footer */
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 150px;
-    padding: 2%;
-    background-color: #035AA6;
-    color: white;
-    width: 100%;
-    margin-top: auto;
-  }
-  
-  /* Container principal do conteúdo do footer */
-  .footer-content {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-  }
-  
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 40px 0 20px;
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
 
-  
-  .texto-com-icones {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Espaço entre o título e os ícones */
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0f0fcd, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(45deg, #ffffff, #e0e6ed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.social-link img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo img {
+  max-width: 180px;
+  height: auto;
+  filter: brightness(1.1);
+}
+
+.footer-copyright {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 30px 0 15px;
   }
   
-  /* Título principal do footer */
-  .pfooter {
-    margin: 0;
-    text-align: left;
-    position: relative; /* Necessário para o traço se posicionar abaixo dele */
-    padding-bottom: 15px; /* Espaço entre o texto e o traço */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    text-align: center;
   }
   
-  /* Traço horizontal abaixo do título */
-  .pfooter::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0; /* Posiciona o traço na parte de baixo */
-    width: 150px; /* Largura do traço */
-    height: 3px; /* Grossura do traço */
-    background-color: white;
+  .footer-left {
+    gap: 15px;
   }
   
-  /* Itens de redes sociais (ícone + texto) */
-  .social-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  .footer-title {
+    font-size: 1.3rem;
   }
   
-  .social-item img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s;
+  .footer-description {
+    font-size: 0.85rem;
   }
   
-  .social-item span {
-    font-size: 14px;
+  .social-links {
+    justify-content: center;
   }
   
-  .social-item:hover img {
-    transform: scale(1.1);
+  .footer-right {
+    gap: 10px;
   }
   
-  /* Container da logo no final do footer */
-  .logo-final {
-    align-self: center;
-    height: auto;
+  .footer-logo img {
+    max-width: 70px;
   }
+}
