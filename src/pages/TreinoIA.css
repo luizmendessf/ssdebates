@@ -1,0 +1,150 @@
+/* ============================================== */
+/* --- ESTILOS DA PÁGINA DE TREINO COM IA --- */
+/* ============================================== */
+
+/* --- ESTRUTURA GERAL --- */
+.treino-ia-page {
+  background-color: #f8fafc;
+  color: #334155;
+  min-height: 100vh;
+  padding: 120px 24px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.treino-ia-page .container {
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- LUZES DE FUNDO --- */
+.treino-ia-page .background-lights {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0; overflow: hidden; pointer-events: none;
+}
+.treino-ia-page .light {
+  position: absolute; border-radius: 50%;
+  filter: blur(150px); opacity: 0.6;
+}
+.treino-ia-page .lightsim-1 { background-color: var(--blue-primary-color); width: 500px; height: 500px; top: -20%; left: -20%; }
+.treino-ia-page .lightsim-2 { background-color: var(--green-primary-color); width: 400px; height: 400px; bottom: -20%; right: 10%; }
+.treino-ia-page .lightsim-3 { background-color: var(--yellow-primary-color); width: 450px; height: 450px; top: 30%; right: -20%; }
+
+/* --- PAINEL PRINCIPAL --- */
+.step-container {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 48px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.step-container h1, .step-container h2 {
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+.step-container h1 { font-size: 2.5rem; font-weight: 300; }
+.step-container h1 .highlight { font-weight: 600; color: var(--blue-primary-color); }
+.step-container h2 { font-size: 2rem; font-weight: 600; }
+.step-container p { color: #475569; line-height: 1.6; max-width: 600px; margin: 0 auto 24px auto; }
+.error-message { color: #ef4444; font-weight: 500; margin-top: 16px; }
+
+/* --- BOTÕES --- */
+.start-button, .analyze-button, .record-button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.start-button:hover, .analyze-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+.start-button { background: linear-gradient(135deg, var(--blue-primary-color), #2563eb); }
+.analyze-button { background: linear-gradient(135deg, var(--green-primary-color), #059669); }
+.analyze-button:disabled { background: #9ca3af; cursor: not-allowed; box-shadow: none; }
+
+/* --- TELA DE BOAS-VINDAS --- */
+.api-keys-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: 32px auto;
+}
+.api-keys-form input {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* --- TELA DE GRAVAÇÃO --- */
+.motion-info {
+  background: #f1f5f9;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+.motion-info p { margin: 0; line-height: 1.5; }
+.motion-info p span { font-weight: 600; color: #1e293b; }
+
+.recording-controls { margin: 32px 0; }
+.record-button.start { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.record-button.stop { background: linear-gradient(135deg, #f59e0b, #d97706); animation: pulse-red 1.5s infinite; }
+.audio-ready-message { font-weight: 600; color: var(--green-primary-color); font-size: 1.1rem; }
+@keyframes pulse-red { 50% { opacity: 0.7; } }
+
+/* --- TELA DE ANÁLISE --- */
+.analyzing-step .spinner {
+  width: 56px;
+  height: 56px;
+  border: 6px solid rgba(0,0,0,0.1);
+  border-left-color: var(--blue-primary-color);
+  border-radius: 50%;
+  margin: 0 auto 24px auto;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- TELA DE FEEDBACK --- */
+.feedback-content {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: left;
+  margin-bottom: 32px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+.feedback-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+.feedback-content h3:first-child { margin-top: 0; }
+.feedback-content br {
+  content: "";
+  display: block;
+  margin-bottom: 0.75rem;
+}

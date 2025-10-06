@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './entrevistas.css';
 
 export default function Entrevistas() {
@@ -76,6 +76,12 @@ export default function Entrevistas() {
       title: "Formação temática SSD - Política Pública pt.1",
       url: "https://youtu.be/xn088bYHehQ?si=kbcRxuGDk9llieRB",
       embedId: "xn088bYHehQ"
+    },
+        {
+      id: "tecnologia",
+      title: "Formação temática SSD - Tecnologia",
+      url: "https://youtu.be/nX_rCCEbQCI",
+      embedId: "nX_rCCEbQCI"
     },
     {
       id: "meio-ambiente",

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './TopBar.css';
+import './topBar.css';
 import logoMenu from '../assets/imagens/SSD-removebg-preview-menu.png';
 import logo3d from '../assets/imagens/3dlogomenu.png';
 
@@ -41,7 +41,7 @@ export default function TopBar() {
           <li><a href="/modelo" onClick={() => setMobileMenuOpen(false)}>Modelo BP</a></li>
           <li><a href="/entrevistas" onClick={() => setMobileMenuOpen(false)}>Entrevistas</a></li>
           <li><a href="/simulador" onClick={() => setMobileMenuOpen(false)}>Simulador</a></li>
-          <li><a href="/calculadora" onClick={() => setMobileMenuOpen(false)}>Calculadora</a></li>
+          <li><a href="/treinoia" onClick={() => setMobileMenuOpen(false)}>Treine com IA</a></li>
         </ul>
       </nav>
     </header>
