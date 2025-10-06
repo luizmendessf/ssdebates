@@ -7,7 +7,7 @@ import DebateBP from '../pages/DebateBP';
 import Entrevistas from '../pages/entrevistas';
 import Simulador from '../pages/simulador';
 import SobreNos from '../pages/SobreNos';
-// import Calculadora from '../pages/Calculadora';
+import TreinoIA from '../pages/TreinoIA';
 
 export default function AppRoutes() {
   return (
@@ -18,7 +18,7 @@ export default function AppRoutes() {
       <Route path="/entrevistas" element={<Entrevistas />} />
       <Route path="/simulador" element={<Simulador />} />
       <Route path="/sobrenos" element={<SobreNos />} />
-      {/* <Route path="/calculadora" element={<Calculadora />} /> */}
+      <Route path="/treinoia" element={<TreinoIA />} />
     </Routes>
   );
 }
