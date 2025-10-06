@@ -4,5 +4,10 @@
       "source": "/:path*",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/analyze.js": {
+      "maxDuration": 60
+    }
+  }
 }
