@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../assets/imagens/3dlogo.png';
-import instagram from '../assets/imagens/instagram.png'
-import linkedin from '../assets/imagens/linkedin1.png'
+import logo from '/src/assets/imagens/3dlogo.png';
+import instagram from '/src/assets/imagens/instagram.png'
+import linkedin from '/src/assets/imagens/linkedin1.png'
 import ImgComTxt from '../components/imgComTxt';
 import './home.css';
 import Opcoes from '../components/opcoes';
 import { OQueFazemos } from '../data';
-import ssdUfs from '../assets/imagens/ssdufs.jpg';
+import ssdUfs from '/src/assets/imagens/ssdufs.jpg';
 
 // Dados dos posts para incorporar
 const instagramPosts = [

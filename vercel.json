@@ -1,7 +1,8 @@
 {
+  "devCommand": "npm run vercel-dev",
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/((?!api).*)",
       "destination": "/index.html"
     }
   ],

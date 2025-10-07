@@ -88,26 +88,178 @@
 
 /* --- PAINEL DA MOÇÃO --- */
 .motion-panel {
-  justify-content: center; position: relative;
-  height: 100%; /* Garante que o painel ocupe a altura da coluna */
+  justify-content: flex-start;
+  position: relative;
+  height: 100%;
 }
+
 .panel-close-btn {
-  position: absolute; top: 16px; right: 16px;
-  background: rgba(0, 0, 0, 0.05); color: #555;
-  border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 50%;
-  width: 18px; height: 18px; font-size: 10px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: all 0.3s ease;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.05);
+  color: #555;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.panel-close-btn:hover { background: #ef4444; color: white; transform: scale(1.1); }
-.motion-panel__initial-state { text-align: center; }
-.motion-panel__initial-state h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 12px; color: #1e293b; }
-.motion-panel__initial-state p { color: #475569; margin-bottom: 24px; }
-.motion-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-.motion-panel h4 { font-size: 1.1rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
-.motion-text, .infoslide-text { font-size: 1.1rem; line-height: 1.6; padding: 16px; border-radius: 12px; background: #f1f5f9; }
-.motion-text { border-left: 4px solid var(--blue-primary-color); margin-bottom: 24px; }
-.infoslide-text { border-left: 4px solid var(--green-primary-color); font-size: 1rem; color: #475569; }
+
+.panel-close-btn:hover {
+  background: #ef4444;
+  color: white;
+  transform: scale(1.1);
+}
+
+.motion-panel__initial-state {
+  text-align: center;
+}
+
+.motion-panel__initial-state h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1e293b;
+}
+
+.motion-panel__initial-state p {
+  color: #475569;
+  margin-bottom: 24px;
+}
+
+/* Novo estilo seguindo o padrão da página de treino com IA */
+.motion-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.motion-panel h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.motion-header-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.sim-button-icon {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #475569;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.sim-button-icon:hover {
+  background-color: var(--blue-primary-color);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.motion-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.motion-content-wrapper h5 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.motion-text,
+.infoslide-text,
+.position-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  text-align: left;
+  margin: 0;
+}
+
+.motion-text {
+  border-left: 4px solid var(--blue-primary-color);
+}
+
+.infoslide-text {
+  border-left: 4px solid #64748b;
+}
+
+.position-text {
+  border-left: 4px solid var(--green-primary-color);
+  font-weight: 600;
+}
+
+.motion-panel-controls {
+  margin-top: auto;
+  padding-top: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.motion-panel-controls .sim-button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.motion-edit-input,
+.motion-edit-select {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #f8fafc;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.motion-edit-input:focus,
+.motion-edit-select:focus {
+  outline: none;
+  border-color: var(--blue-primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.motion-edit-input {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.sim-button--cancel {
+  background: #e2e8f0;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
 
 /* --- PAINEL DO TIMER --- */
 .timer-panel {

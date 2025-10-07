@@ -3,7 +3,28 @@ import './simulador.css';
 import motions from '../motions.json';
 
 // Componente do painel de moção (MotionDisplay)
-const MotionDisplay = ({ motion, infoslide, onSortear, hasMotion, onClose }) => {
+const MotionDisplay = ({ motion, infoslide, onSortear, hasMotion, onClose, onSaveMotion }) => {
+  const [isEditingMotion, setIsEditingMotion] = useState(false);
+  const [editedMotion, setEditedMotion] = useState({ text: motion || '', infoslide: infoslide || '' });
+
+  // Atualiza o estado editado quando a moção muda
+  useEffect(() => {
+    setEditedMotion({ text: motion || '', infoslide: infoslide || '' });
+  }, [motion, infoslide]);
+
+  const handleEditToggle = () => {
+    setEditedMotion({ text: motion || '', infoslide: infoslide || '' });
+    setIsEditingMotion(!isEditingMotion);
+  };
+
+  const handleSaveMotion = () => {
+    // Chama a função de salvamento passada pelo componente pai
+    if (onSaveMotion) {
+      onSaveMotion(editedMotion.text, editedMotion.infoslide);
+    }
+    setIsEditingMotion(false);
+  };
+
   return (
     <div className="simulator-panel motion-panel">
       {/* Botão de fechar visível apenas quando a moção existe */}
@@ -23,15 +44,51 @@ const MotionDisplay = ({ motion, infoslide, onSortear, hasMotion, onClose }) => 
         </div>
       ) : (
         <div className="motion-panel__content">
-          <div className="motion-header">
-            <h4>Moção</h4>
-            <button className="sim-button sim-button--secondary sim-button--icon" onClick={onSortear} aria-label="Gerar nova moção">
-              🎲
-            </button>
+          <div className="motion-panel-header">
+            <h4>MOÇÃO</h4>
+            <div className="motion-header-buttons">
+              <button className="sim-button-icon" onClick={handleEditToggle} aria-label="Editar moção">
+                ✏️
+              </button>
+              <button className="sim-button-icon" onClick={onSortear} aria-label="Gerar nova moção">
+                🎲
+              </button>
+            </div>
           </div>
-          <p className="motion-text">{motion}</p>
-          <h4>Infoslide</h4>
-          <p className="infoslide-text">{infoslide}</p>
+          
+          {isEditingMotion ? (
+            <div className="motion-content-wrapper">
+              <h5>MOÇÃO</h5>
+              <textarea
+                className="motion-edit-input"
+                value={editedMotion.text}
+                onChange={(e) => setEditedMotion({ ...editedMotion, text: e.target.value })}
+                placeholder="Digite a moção..."
+              />
+              <h5>INFOSLIDE</h5>
+              <textarea
+                className="motion-edit-input"
+                value={editedMotion.infoslide}
+                onChange={(e) => setEditedMotion({ ...editedMotion, infoslide: e.target.value })}
+                placeholder="Digite o infoslide..."
+              />
+              <div className="motion-panel-controls">
+                <button className="sim-button sim-button--primary" onClick={handleSaveMotion}>
+                  Salvar
+                </button>
+                <button className="sim-button sim-button--cancel" onClick={handleEditToggle}>
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="motion-content-wrapper">
+              <h5>MOÇÃO</h5>
+              <p className="motion-text">{motion}</p>
+              <h5>INFOSLIDE</h5>
+              <p className="infoslide-text">{infoslide}</p>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -102,14 +159,14 @@ const Simulador = () => {
 
   const stages = [
     { name: 'Tempo de Preparação', duration: 900 },
-    { name: 'Primeiro Ministro', duration: 375 },
-    { name: 'Líder da Oposição', duration: 375 },
-    { name: 'Vice Primeiro Ministro', duration: 375 },
-    { name: 'Vice Líder da Oposição', duration: 375 },
-    { name: 'Membro do Governo', duration: 375 },
-    { name: 'Membro da Oposição', duration: 375 },
-    { name: 'Whip do Governo', duration: 375 },
-    { name: 'Whip da Oposição', duration: 375 }
+    { name: 'Primeiro Ministro', duration: 435 },
+    { name: 'Líder da Oposição', duration: 435 },
+    { name: 'Vice Primeiro Ministro', duration: 435 },
+    { name: 'Vice Líder da Oposição', duration: 435 },
+    { name: 'Membro do Governo', duration: 435 },
+    { name: 'Membro da Oposição', duration: 435 },
+    { name: 'Whip do Governo', duration: 435 },
+    { name: 'Whip da Oposição', duration: 435 }
   ];
 
   const playTick = () => {
@@ -163,6 +220,14 @@ const Simulador = () => {
     setCurrentMotion(motions[randomIndex]);
   };
 
+  const saveEditedMotion = (newMotion, newInfoslide) => {
+    setCurrentMotion({
+      ...currentMotion,
+      motion: newMotion,
+      infoslide: newInfoslide
+    });
+  };
+
   const startTimer = () => setIsRunning(true);
   const pauseTimer = () => setIsRunning(false);
   const skipStage = () => { 
@@ -179,7 +244,12 @@ const Simulador = () => {
       setIsRunning(false);
       updateTimerColor(stages[next].duration);
     } else {
-      alert('Debate finalizado!');
+      // Reinicia o debate automaticamente
+      setCurrentStage(0);
+      setTimeLeft(stages[0].duration);
+      setIsRunning(false);
+      updateTimerColor(stages[0].duration);
+      sortearMocao(); // Sorteia uma nova moção
     }
   };
 
@@ -200,6 +270,7 @@ const Simulador = () => {
               onSortear={sortearMocao}
               hasMotion={!!currentMotion}
               onClose={() => setShowMotionPanel(false)}
+              onSaveMotion={saveEditedMotion}
             />
           </div>
           <div className="timer-column">

@@ -1,27 +1,30 @@
+// api/analyze.js
+
 export default async function handler(req, res) {
-  // Garante que a requisição seja um POST
+  // --- PASSO DE DEPURAÇÃO ---
+  // A linha abaixo irá mostrar no terminal do backend exatamente o que ele está a receber.
+  console.log("Backend recebeu o seguinte corpo (body):", req.body);
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método não permitido' });
   }
 
   try {
-    // 1. Pega os dados enviados pelo seu frontend
-    const { audio_base64, motion, position } = req.body;
-    
-    // Pega as chaves secretas que você configurou na Vercel/Netlify
+    const { audio_base_64, motion, infoslide, position } = req.body;
+
+    // --- VERIFICAÇÃO ADICIONAL ---
+    if (!audio_base_64) {
+      console.error("Erro: 'audio_base_64' não foi encontrado no corpo da requisição.");
+      return res.status(400).json({ error: "Dados de áudio não recebidos pelo servidor." });
+    }
+
     const ASSEMBLYAI_API_KEY = process.env.ASSEMBLYAI_API_KEY;
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+    const audioBuffer = Buffer.from(audio_base_64, 'base64');
 
-    // Converte o áudio de Base64 para um formato que a API do AssemblyAI entende
-    const audioBuffer = Buffer.from(audio_base64, 'base64');
-
-    // --- LÓGICA DE TRANSCRIÇÃO (no servidor) ---
     const uploadResponse = await fetch('https://api.assemblyai.com/v2/upload', {
       method: 'POST',
-      headers: {
-        'authorization': ASSEMBLYAI_API_KEY,
-        'content-type': 'application/octet-stream'
-      },
+      headers: { 'authorization': ASSEMBLYAI_API_KEY, 'content-type': 'application/octet-stream' },
       body: audioBuffer
     });
     const uploadData = await uploadResponse.json();
@@ -49,8 +52,7 @@ export default async function handler(req, res) {
       throw new Error('A transcrição retornou um texto vazio.');
     }
 
-    // --- LÓGICA DE ANÁLISE (no servidor) ---
-    const geminiPrompt = `Você é um juiz experiente de debates no formato British Parliamentary. Analise o seguinte discurso, que foi feito para a moção "${motion}" na posição "${position}". O texto do discurso é: "${transcriptText}". Forneça um feedback estruturado e detalhado, em português, com as seções em markdown: ### 🧠 Estrutura e Lógica, ### ✨ Força dos Argumentos, ### 🎙️ Oratória e Clareza, ### 🎯 Cumprimento do Papel, ### 💡 Sugestões de Melhoria, e ### 🏆 Nota Geral.`;
+    const geminiPrompt = `Aja EXCLUSIVAMENTE como um juiz de debates BP. Analise o discurso abaixo para a moção "${motion}" na posição "${position}". O discurso é: "${transcriptText}". Comece sua resposta IMEDIATAMENTE com a primeira seção de feedback, sem nenhuma introdução. Forneça um feedback estruturado com as seguintes seções em markdown: ### 🧠 Estrutura e Lógica, ### ✨ Força dos Argumentos, ### 🎙️ Oratória e Clareza, ### 🎯 Cumprimento do Papel, ### 💡 Sugestões de Melhoria, e ### 🏆 Nota Geral.`;
     
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
     
@@ -68,7 +70,6 @@ export default async function handler(req, res) {
     const geminiData = await geminiResponse.json();
     const feedbackText = geminiData.candidates[0].content.parts[0].text;
     
-    // 4. Envia o feedback de volta para o frontend
     res.status(200).json({ feedback: feedbackText });
 
   } catch (error) {

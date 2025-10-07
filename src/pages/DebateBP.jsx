@@ -64,7 +64,7 @@ export default function DebateBP() {
         <div className="container text-center">
           <h2 className="section-title">O Que é o <span className="highlight">Formato BP?</span></h2>
           <p className="section-intro">
-            O British Parliamentary, ou BP, é um formato de debate que simula uma sessão do parlamento britânico. Quatro equipes — duas representando o Governo e duas a Oposição — competem para defender ou refutar uma moção. O objetivo não é apenas vencer o outro lado, but também provar ser a melhor equipe dentro da sua própria bancada (Governo ou Oposição).
+            O British Parliamentary, ou BP, é um formato de debate que simula uma sessão do parlamento britânico. Quatro equipes — duas representando o Governo e duas a Oposição — competem para defender ou refutar uma moção. O objetivo não é apenas vencer o outro lado, mas também provar ser a melhor equipe dentro da sua própria bancada (Governo ou Oposição).
           </p>
         </div>
       </section>

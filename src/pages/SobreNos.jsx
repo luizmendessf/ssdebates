@@ -3,11 +3,14 @@ import './SobreNos.css';
 
 // --- Dados dos diretores, objetivos e conquistas (inalterado) ---
 const directors = [
-  { name: "Nome do Diretor 1", title: "Presidente", image: "/images/placeholder-avatar.png" },
-  { name: "Nome do Diretor 2", title: "Diretoria de RH", image: "/images/placeholder-avatar.png" },
-  { name: "Nome do Diretor 3", title: "Diretoria de Relações Externas", image: "/images/placeholder-avatar.png" },
-  { name: "Nome do Diretor 4", title: "Diretoria Financeira", image: "/images/placeholder-avatar.png" },
-  { name: "Nome do Diretor 5", title: "Diretoria Acadêmica", image: "/images/placeholder-avatar.png" },
+  { name: "Clara Prado", title: "Presidente e Fundadora", image: "/images/placeholder-avatar.png" },
+  { name: "Elisa Prado", title: "Vice-Presidente e Fundadora", image: "/images/placeholder-avatar.png" },
+  { name: "Letícia Sant'anna", title: "Diretoria de Relações Externas", image: "/images/placeholder-avatar.png" },
+  { name: "Maria Teresa", title: "Diretoria Financeira", image: "/images/placeholder-avatar.png" },
+  { name: "Luana Goes", title: "Diretoria Acadêmica", image: "/images/placeholder-avatar.png" },
+  { name: "Sofia Pitta", title: "Vice-Presidente e Fundadora", image: "/images/placeholder-avatar.png" },
+  { name: "Camila Salustino", title: "Diretoria de Relações Externas", image: "/images/placeholder-avatar.png" },
+  { name: "Maria Maxime", title: "Diretoria Financeira", image: "/images/placeholder-avatar.png" },
 ];
 const objectives = [
   { icon: "📚", title: "Promover o Debate", description: "Difundir a cultura do debate competitivo em Sergipe, incentivando o pensamento crítico e a argumentação estruturada." },

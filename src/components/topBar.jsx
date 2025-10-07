@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './topBar.css';
-import logoMenu from '../assets/imagens/SSD-removebg-preview-menu.png';
-import logo3d from '../assets/imagens/3dlogomenu.png';
+import logoMenu from '/src/assets/imagens/SSD-removebg-preview-menu.png';
+import logo3d from '/src/assets/imagens/3dlogomenu.png';
 
 export default function TopBar() {
   const [scrolled, setScrolled] = useState(false);
