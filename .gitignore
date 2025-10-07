@@ -26,3 +26,8 @@ dist-ssr
 # Local env files
 .env.local
 .env.*.local
+
+# Environment variables with API keys
+.env
+.env.production
+.env.development
