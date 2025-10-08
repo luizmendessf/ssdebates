@@ -4,13 +4,13 @@ import './SobreNos.css';
 // --- Dados dos diretores, objetivos e conquistas (inalterado) ---
 const directors = [
   { name: "Clara Prado", title: "Presidente e Fundadora", image: "/assets/imagens/clara.jpeg" },
-  { name: "Elisa Prado", title: "Vice-Presidente e Fundadora", image: "/assets/imagens/elisa.jpeg" },
-  { name: "Letícia Sant'anna", title: "Diretoria de Gestão de Pessoas", image: "/assets/imagens/leticia.jpeg" },
-  { name: "Maria Teresa", title: "Diretoria de Mídias", image: "/assets/imagens/mariateresa.jpeg" },
-  { name: "Luana Goes", title: "Diretoria de Mídias", image: "/assets/imagens/luana.jpeg" },
-  { name: "Sofia Pitta", title: "Diretoria de Gestão de Pessoas", image: "/assets/imagens/sofia.jpeg" },
-  { name: "Camila Salustino", title: "Diretoria de Gestão de Pessoas", image: "/assets/imagens/camila.jpeg" },
-  { name: "Maria Maxime", title: "Diretoria de Mídias", image: "/assets/imagens/mariamaxime.jpeg" },
+  { name: "Elisa Prado", title: "Vice-Presidente", image: "/assets/imagens/elisa.jpeg" },
+  { name: "Letícia Sant'anna", title: "Diretora de Gestão de Pessoas", image: "/assets/imagens/leticia.jpeg" },
+  { name: "Maria Teresa", title: "Diretora de Mídias", image: "/assets/imagens/mariateresa.jpeg" },
+  { name: "Luana Goes", title: "Diretora de Mídias", image: "/assets/imagens/luana.jpeg" },
+  { name: "Sofia Pitta", title: "Diretora de Gestão de Pessoas", image: "/assets/imagens/sofia.jpeg" },
+  { name: "Camila Salustino", title: "Diretora de Gestão de Pessoas", image: "/assets/imagens/camila.jpeg" },
+  { name: "Maria Maxime", title: "Diretora de Mídias", image: "/assets/imagens/mariamaxime.jpeg" },
 ];
 const objectives = [
   { icon: "📚", title: "Promover o Debate", description: "Difundir a cultura do debate competitivo em Sergipe, incentivando o pensamento crítico e a argumentação estruturada." },
