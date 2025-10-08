@@ -16,7 +16,43 @@ const instagramPosts = [
 ];
 
 export default function Home() {
-  const[selectedTopic, setSelectedTopic] = useState('workshops')
+  const [selectedTopic, setSelectedTopic] = useState('workshops');
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
+    
+    try {
+      const response = await fetch('https://formspree.io/f/xzzgljav', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (response.ok) {
+        setSubmitSuccess(true);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitError('Erro ao enviar mensagem. Tente novamente.');
+      }
+    } catch (error) {
+      setSubmitError('Erro ao enviar mensagem. Verifique sua conexão.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   // Efeito para carregar o script do Instagram
   useEffect(() => {
@@ -134,14 +170,60 @@ Por meio de eventos, workshops, torneios e iniciativas educativas, promovemos ex
             <p className="cta-subtitle">
               Quer saber mais sobre nossos eventos, parcerias ou como participar? Envie-nos uma mensagem!
             </p>
-            <form className="cta-form">
-              <div className="form-row">
-                <input type="text" placeholder="Seu nome" className="cta-input" required />
-                <input type="email" placeholder="Seu melhor e-mail" className="cta-input" required />
+            {submitSuccess ? (
+              <div className="form-success-message">
+                <h3>Obrigado pelo contato!</h3>
+                <p>Sua mensagem foi enviada com sucesso. Retornaremos em breve.</p>
+                <button 
+                  className="cta-button" 
+                  onClick={() => setSubmitSuccess(false)}
+                >
+                  Enviar Nova Mensagem
+                </button>
               </div>
-              <textarea placeholder="Sua mensagem..." className="cta-textarea" rows="5" required></textarea>
-              <button type="submit" className="cta-button">Enviar Mensagem</button>
-            </form>
+            ) : (
+              <form className="cta-form" onSubmit={handleFormSubmit}>
+                <div className="form-row">
+                  <input 
+                    type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Seu nome" 
+                    className="cta-input" 
+                    required 
+                  />
+                  <input 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Seu melhor e-mail" 
+                    className="cta-input" 
+                    required 
+                  />
+                </div>
+                <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="Sua mensagem..." 
+                  className="cta-textarea" 
+                  rows="5" 
+                  required
+                ></textarea>
+                {submitError && (
+                  <p className="form-error">{submitError}</p>
+                )}
+                <button 
+                  type="submit" 
+                  className="cta-button" 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>

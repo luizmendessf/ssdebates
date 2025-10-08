@@ -1,8 +1,8 @@
 /* ============================================== */
-/* --- ESTILOS DA PÁGINA DEBATE BP --- */
+/* --- ESTILOS DA PÁGINA DEBATE BP (CORRIGIDO) --- */
 /* ============================================== */
 
-/* --- ESTRUTURA GERAL DA PÁGINA --- */
+/* --- ESTRUTURA GERAL --- */
 .bp-page {
   background-color: #f8fafc;
   color: #334155;
@@ -11,6 +11,7 @@
 .bp-section {
   padding: 80px 0;
   position: relative;
+  /* CORREÇÃO: Removido overflow:hidden que cortava o conteúdo */
 }
 
 .bp-section:nth-child(even) {
@@ -28,9 +29,15 @@
   font-weight: 300;
   color: #1e293b;
   margin-bottom: 24px;
+  text-align: center;
 }
 
-.bp-page .section-title .highlight, .bp-page .main-title .highlight {
+.bp-page .section-title .highlight {
+  font-weight: 600;
+  color: var(--green-primary-color);
+}
+
+.bp-page .main-title .highlight {
   font-weight: 600;
   color: var(--green-primary-color);
 }
@@ -41,10 +48,12 @@
   font-size: 1.125rem;
   line-height: 1.7;
   color: #475569;
+  text-align: center;
 }
 
 .text-container {
   max-width: 800px;
+  margin: 0 auto;
 }
 
 .text-container p {
@@ -55,24 +64,46 @@
 
 /* --- HERO SECTION --- */
 .bp-page .hero-section {
-  padding-top: 120px;
+  /* CORREÇÃO: Aumentado o padding-top para não invadir o header */
+  padding-top: 160px;
   padding-bottom: 80px;
-  overflow: hidden;
 }
 
 .bp-page .hero-content {
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  gap: 48px;
+  gap: 48px; /* Espaçamento entre texto e PDF em mobile */
   position: relative;
   z-index: 1;
 }
 
+/* Layout para telas maiores */
 @media (min-width: 1024px) {
   .bp-page .hero-content {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 420px;
   }
+}
+
+.bp-page .hero-text {
+  text-align: left;
+}
+
+.bp-page .main-title {
+  /* CORREÇÃO: Removida a alteração de fonte, voltando ao padrão do site */
+  font-size: 3.5rem;
+  color: #1e293b;
+  margin-bottom: 24px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.bp-page .subtitle {
+  font-size: 1.25rem;
+  color: #475569;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0;
 }
 
 /* --- PDF SECTION --- */
@@ -80,18 +111,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 24px;
 }
 
 .bp-page .pdf-viewer {
-  width: 80%;
+  width: 100%;
   max-width: 420px;
-  height: 554px;
-  aspect-ratio: 210/297;
-  border-radius: 8px;
+  height: auto;
+  aspect-ratio: 210 / 297;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
-  background: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   border: 1px solid #e0e0e0;
 }
 
@@ -106,61 +136,19 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   background: linear-gradient(135deg, var(--blue-primary-color), var(--green-primary-color));
   color: white;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: 600;
-  font-size: 13px;
   transition: all 0.3s ease;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.3);
-  width: fit-content;
-  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .bp-page .pdf-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-  background: linear-gradient(135deg, var(--green-primary-color), var(--blue-primary-color));
-}
-
-@media (max-width: 1023px) {
-  .bp-page .hero-pdf {
-    order: -1;
-  }
-  
-  .bp-page .pdf-viewer {
-    height: 420px;
-    max-width: 300px;
-    aspect-ratio: 210/297;
-  }
-}
-
-.bp-page .main-title {
-  font-size: 3.5rem;
-  font-weight: 300;
-  color: #1e293b;
-  margin-bottom: 24px;
-  line-height: 1.2;
-}
-
-.bp-page .subtitle {
-  font-size: 1.25rem;
-  color: #475569;
-  line-height: 1.7;
-}
-
-.bp-page .hero-image-wrapper {
-  aspect-ratio: 4 / 3;
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.bp-page .hero-image {
-  object-fit: cover;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* --- ESTRUTURA / REGRAS --- */
@@ -197,6 +185,61 @@
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 8px;
+}
+
+/* --- MEDIA QUERIES PARA TELAS MENORES --- */
+@media (max-width: 768px) {
+  .bp-page .hero-section {
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+  
+  .bp-page .hero-content {
+    gap: 32px;
+  }
+  
+  .bp-page .hero-pdf {
+    margin-top: 0;
+    position: relative;
+  }
+  
+  .bp-page .pdf-viewer {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .bp-page .pdf-button {
+    margin-top: 16px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .bp-page .main-title {
+    font-size: 2.5rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .bp-page .hero-section {
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+  
+  .bp-page .hero-content {
+    gap: 24px;
+  }
+  
+  .bp-page .main-title {
+    font-size: 2rem;
+    text-align: left;
+  }
+  
+  .bp-page .pdf-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
 }
 
 /* --- ORADORES --- */
@@ -263,23 +306,47 @@
 }
 
 /* --- LUZES DE FUNDO --- */
-/* (Reutilizando as mesmas classes e animação do Simulador) */
 .bp-page .background-lights {
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: 0; overflow: hidden; pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
+
 .bp-page .light {
-  position: absolute; border-radius: 50%;
-  filter: blur(150px); will-change: transform;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  will-change: transform;
   animation: softGlow 25s ease-in-out infinite alternate;
   opacity: 0.6;
 }
-.bp-page .lightsim-1 { background-color: var(--blue-primary-color); width: 500px; height: 500px; top: -10%; left: -10%; animation-delay: 0s; }
-.bp-page .lightsim-2 { background-color: var(--green-primary-color); width: 400px; height: 400px; bottom: -15%; right: 10%; animation-delay: -8s; }
-.bp-page .lightsim-3 { background-color: var(--yellow-primary-color); width: 450px; height: 450px; bottom: 20%; left: 20%; animation-delay: -16s; }
 
-@keyframes softGlow {
-  from { transform: scale(1) translate(0, 0); }
-  to { transform: scale(1.2) translate(40px, -30px); }
+.bp-page .lightsim-1 {
+  background-color: var(--blue-primary-color);
+  width: 500px;
+  height: 500px;
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.bp-page .lightsim-2 {
+  background-color: var(--green-primary-color);
+  width: 400px;
+  height: 400px;
+  bottom: -15%;
+  right: 10%;
+  animation-delay: -8s;
+}
+
+.bp-page .lightsim-3 {
+  background-color: var(--yellow-primary-color);
+  width: 450px;
+  height: 450px;
+  bottom: 20%;
+  left: 20%;
+  animation-delay: -16s;
 }

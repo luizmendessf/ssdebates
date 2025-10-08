@@ -300,6 +300,38 @@
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
+.cta-button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-success-message {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f0f9ff;
+  border-radius: 12px;
+  border: 2px solid var(--green-primary-color);
+}
+
+.form-success-message h3 {
+  color: var(--green-primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-success-message p {
+  color: #475569;
+  margin: 1.5rem;
+}
+
+.form-error {
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-top: 1.0rem;
+  display: block;
+}
+
 /* ============================================== */
 /* --- ESTILOS GERAIS E RESPONSIVIDADE --- */
 /* ============================================== */

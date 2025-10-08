@@ -3,14 +3,14 @@ import './SobreNos.css';
 
 // --- Dados dos diretores, objetivos e conquistas (inalterado) ---
 const directors = [
-  { name: "Clara Prado", title: "Presidente e Fundadora", image: "/images/placeholder-avatar.png" },
-  { name: "Elisa Prado", title: "Vice-Presidente e Fundadora", image: "/images/placeholder-avatar.png" },
-  { name: "Letícia Sant'anna", title: "Diretoria de Relações Externas", image: "/images/placeholder-avatar.png" },
-  { name: "Maria Teresa", title: "Diretoria Financeira", image: "/images/placeholder-avatar.png" },
-  { name: "Luana Goes", title: "Diretoria Acadêmica", image: "/images/placeholder-avatar.png" },
-  { name: "Sofia Pitta", title: "Vice-Presidente e Fundadora", image: "/images/placeholder-avatar.png" },
-  { name: "Camila Salustino", title: "Diretoria de Relações Externas", image: "/images/placeholder-avatar.png" },
-  { name: "Maria Maxime", title: "Diretoria Financeira", image: "/images/placeholder-avatar.png" },
+  { name: "Clara Prado", title: "Presidente e Fundadora", image: "/src/assets/imagens/clara.jpeg" },
+  { name: "Elisa Prado", title: "Vice-Presidente e Fundadora", image: "/src/assets/imagens/elisa.jpeg" },
+  { name: "Letícia Sant'anna", title: "Diretoria de Relações Externas", image: "/src/assets/imagens/leticia.jpeg" },
+  { name: "Maria Teresa", title: "Diretoria Financeira", image: "/src/assets/imagens/mariateresa.jpeg" },
+  { name: "Luana Goes", title: "Diretoria Acadêmica", image: "/src/assets/imagens/luana.jpeg" },
+  { name: "Sofia Pitta", title: "Vice-Presidente e Fundadora", image: "/src/assets/imagens/sofia.jpeg" },
+  { name: "Camila Salustino", title: "Diretoria de Relações Externas", image: "/src/assets/imagens/camila.jpeg" },
+  { name: "Maria Maxime", title: "Diretoria Financeira", image: "/src/assets/imagens/mariamaxime.jpeg" },
 ];
 const objectives = [
   { icon: "📚", title: "Promover o Debate", description: "Difundir a cultura do debate competitivo em Sergipe, incentivando o pensamento crítico e a argumentação estruturada." },
