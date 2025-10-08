@@ -1,6 +1,6 @@
-import torneios from '/src/assets/imagens/discurso-usp.png'
-import workshop from '/src/assets/imagens/workshop.png'
-import comunidade from '/src/assets/imagens/comunidade.JPG'
+import torneios from '/assets/imagens/discurso-usp.png'
+import workshop from '/assets/imagens/workshop.png'
+import comunidade from '/assets/imagens/comunidade.JPG'
 
 export const OQueFazemos = {
     workshops: {

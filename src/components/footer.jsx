@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Importação das imagens
-import instagramIcon from '/src/assets/imagens/instagram-branco.png';
-import linkedinIcon from '/src/assets/imagens/linkedin1-branco.png';
-import logoFinal from '/src/assets/imagens/SSD-removebg-preview-menu.png';
+import instagramIcon from '/assets/imagens/instagram-branco.png';
+import linkedinIcon from '/assets/imagens/linkedin1-branco.png';
+import logoFinal from '/assets/imagens/SSD-removebg-preview-menu.png';
 
 import './footer.css';
 
