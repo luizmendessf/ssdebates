@@ -137,7 +137,8 @@ export default function TreinoIA() {
       setParsedFeedback(parseFeedback(data.feedback));
       setStep('feedback');
     } catch (err) {
-      setError(err.message);
+      console.error('Erro durante a análise do discurso:', err);
+      setError('friendly');
       setStep('recording');
     } finally {
       setLoadingMessage('');
@@ -153,7 +154,13 @@ export default function TreinoIA() {
           <div className="step-container welcome-step">
             <h1>Treinador de Discurso com <span className="highlight">IA</span></h1>
             <p>Grave um discurso de 7 minutos e receba feedback instantâneo sobre a sua estrutura, argumentação e oratória.</p>
-            {error && <p className="error-message">{error}</p>}
+            {error && (
+              <p className="error-message">
+                Ocorreu um problema técnico.{' '}
+                <a href="/#contato" className="error-link">Entre em contato</a>{' '}
+                conosco através da nossa página inicial.
+              </p>
+            )}
             <button onClick={handleStart} className="start-button">Começar a Treinar</button>
           </div>
         );
@@ -226,7 +233,13 @@ export default function TreinoIA() {
                   </div>
                 )}
               </div>
-               {error && <p className="error-message">{error}</p>}
+               {error && (
+                 <p className="error-message">
+                   Ocorreu um problema técnico.{' '}
+                   <a href="/#contato" className="error-link">Entre em contato</a>{' '}
+                   conosco através da nossa página inicial.
+                 </p>
+               )}
             </div>
           </div>
         );

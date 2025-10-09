@@ -122,6 +122,16 @@
   margin-top: 16px;
 }
 
+.error-link {
+  color: var(--blue-primary-color);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.error-link:hover {
+  color: #0a5ccf;
+}
+
 /* --- NOVO LAYOUT DE TREINO --- */
 .training-layout {
   display: grid;

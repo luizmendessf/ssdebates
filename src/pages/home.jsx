@@ -163,7 +163,7 @@ Por meio de eventos, workshops, torneios e iniciativas educativas, promovemos ex
       />
 
       {/* SEÇÃO CTA / FORMULÁRIO */}
-      <section className="cta-section">
+      <section id="contato" className="cta-section">
         <div className="container">
           <div className="cta-content">
             <h2 className="cta-title">Entre em Contato</h2>
