@@ -36,6 +36,10 @@ export default function TreinoIA() {
   const [timeLeft, setTimeLeft] = useState(SPEECH_DURATION);
   const [isRunning, setIsRunning] = useState(false);
   const [timerColor, setTimerColor] = useState('green');
+  const [bulletsOpen, setBulletsOpen] = useState(false);
+  const [bulletsLoading, setBulletsLoading] = useState(false);
+  const [bulletsError, setBulletsError] = useState('');
+  const [bulletsText, setBulletsText] = useState('');
 
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
@@ -147,6 +151,53 @@ export default function TreinoIA() {
   
   const reset = () => { setStep('welcome'); sortearMocao(); setAudioBlob(null); setFeedback(''); setParsedFeedback([]); setError(''); };
 
+  const parseBullets = (text) => {
+    if (!text) return [];
+    const sections = text.split('### ').slice(1);
+    return sections.map(section => {
+      const lines = section.split('\n');
+      const title = lines[0].trim();
+      const bullets = lines.slice(1).filter(l => l.trim().startsWith('-'));
+      return { title, bullets };
+    });
+  };
+
+  const handleOpenBullets = async () => {
+    setBulletsOpen(true);
+    setBulletsLoading(true);
+    setBulletsError('');
+    try {
+      const positionsOrder = [
+        'Primeiro Ministro', 'Líder da Oposição',
+        'Vice-Primeiro Ministro', 'Vice-Líder da Oposição',
+        'Membro do Governo', 'Membro da Oposição',
+        'Whip do Governo', 'Whip da Oposição'
+      ];
+      const idx = positionsOrder.indexOf(motion.position);
+      if (idx === 0) {
+        // Não há discursos anteriores para PM
+        setBulletsText('### Aviso\n- Você fala primeiro nesta moção; não há discursos anteriores.');
+        return;
+      }
+      const response = await fetch('/api/generateBullets', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ motion: motion.text, infoslide: motion.infoslide, position: motion.position })
+      });
+      const data = await response.json();
+      if (!response.ok) { throw new Error(data.error || 'Falha ao gerar bullets.'); }
+      setBulletsText(data.bullets);
+    } catch (e) {
+      setBulletsError('Não foi possível gerar os bullet points. Tente novamente.');
+    } finally {
+      setBulletsLoading(false);
+    }
+  };
+
+  const handleCloseBullets = () => {
+    setBulletsOpen(false);
+  };
+
   const renderStep = () => {
     switch(step) {
       case 'welcome':
@@ -204,6 +255,9 @@ export default function TreinoIA() {
                     <h5>Moção</h5><p className="motion-text">{motion.text}</p>
                     <h5>Infoslide</h5><p className="infoslide-text">{motion.infoslide}</p>
                     <h5>Posição</h5><p className="position-text">{motion.position}</p>
+                  </div>
+                  <div className="motion-panel-bottom">
+                    <button onClick={handleOpenBullets} className="sim-button sim-button--primary">Abrir bullets anteriores</button>
                   </div>
                 </>
               )}
@@ -280,6 +334,32 @@ export default function TreinoIA() {
       </div>
       <div className="container">
         {renderStep()}
+        {bulletsOpen && (
+          <div className="bullets-overlay">
+            <div className="bullets-card">
+              <div className="bullets-header">
+                <h3>Bullets dos discursos anteriores</h3>
+                <button onClick={handleCloseBullets} className="sim-button sim-button--blue">Fechar</button>
+              </div>
+              {bulletsLoading && <p className="bullets-loading">Gerando bullet points...</p>}
+              {bulletsError && <p className="error-message">{bulletsError}</p>}
+              {!bulletsLoading && !bulletsError && bulletsText && (
+                <div className="bullets-content">
+                  {parseBullets(bulletsText).map((sec, idx) => (
+                    <div key={idx} className="bullets-section">
+                      <h4>{sec.title}</h4>
+                      <ul>
+                        {sec.bullets.map((b, i) => (
+                          <li key={i}>{b.replace(/^\-\s*/, '')}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );
