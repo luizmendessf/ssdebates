@@ -3,6 +3,7 @@ import logo from '/assets/imagens/3dlogo.png';
 import instagram from '/assets/imagens/instagram.png'
 import linkedin from '/assets/imagens/linkedin1.png'
 import ImgComTxt from '../components/imgComTxt';
+import Carousel from '../components/carousel';
 import './home.css';
 import Opcoes from '../components/opcoes';
 import { OQueFazemos } from '../data';
@@ -12,11 +13,11 @@ import ssdUfs from '/assets/imagens/ssdufs.jpg';
 const instagramPosts = [
   `<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DO6slRrD_N8/?img_index=1" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>`,
   `<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DLINs8wOBGN/" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>`,
-  `<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DOyxcK5jXre/" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>`
+  `<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DPuZs6Mjens/?img_index=1" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>`
 ];
 
 export default function Home() {
-  const [selectedTopic, setSelectedTopic] = useState('workshops');
+  const [selectedTopic, setSelectedTopic] = useState('comunidade');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -133,14 +134,25 @@ export default function Home() {
           
           <div className="tabs-container">
             <div className="tab-buttons">
+              <Opcoes isSelected={selectedTopic === 'comunidade'} onClick={() => handleSelect('comunidade')}>Comunidade</Opcoes>
               <Opcoes isSelected={selectedTopic === 'workshops'} onClick={() => handleSelect('workshops')}>Workshops</Opcoes>
               <Opcoes isSelected={selectedTopic === 'torneios'} onClick={() => handleSelect('torneios')}>Torneios</Opcoes>
-              <Opcoes isSelected={selectedTopic === 'comunidade'} onClick={() => handleSelect('comunidade')}>Comunidade</Opcoes>
             </div>
 
             <div className="tab-content">
               <div className="content-image">
-                <img src={OQueFazemos[selectedTopic].img} alt={OQueFazemos[selectedTopic].title} />
+                {OQueFazemos[selectedTopic].images ? (
+                  <Carousel 
+                    images={OQueFazemos[selectedTopic].images} 
+                    alt={OQueFazemos[selectedTopic].title}
+                  />
+                ) : (
+                  <img 
+                    src={OQueFazemos[selectedTopic].img} 
+                    alt={OQueFazemos[selectedTopic].title}
+                    style={{ objectPosition: OQueFazemos[selectedTopic].objectPosition || '50% 50%' }}
+                  />
+                )}
               </div>
               <div className="content-text">
                 <h3>{OQueFazemos[selectedTopic].title}</h3>
