@@ -283,27 +283,27 @@ ADAPTAÇÃO AO LADO DO USUÁRIO:
       // Fallback específico para UBI com números e comparações
       const ubiByRole = {
         'Primeiro Ministro': [
-          `- Burdens: ${D.burdensGov[0]}; ${D.burdensGov[1]} (ex.: ${D.govCosts[0]}).`,
-          `- Financiamento: ${D.govFunding.join('; ')}; trade-offs explícitos e compensações à baixa renda.`,
-          `- Framing: ${D.framingGov}; simplicidade reduz custos administrativos (${D.govCosts[1]}).`,
-          `- Argumento 1: ${D.govArgs[0]} (impactos: ${D.govImpacts[0]}); exemplos: ${D.govExamples.join('; ')}.`,
-          `- Argumento 2: ${D.govArgs[1]} (impactos: ${D.govImpacts[1]}); ordem de grandeza: aumento de transições e empreendedorismo com rede de segurança.`,
-          `- Antecipação: a LO dirá ${D.oppArgs[1]}; respondo com guarda-corpos anti-inflação (calibragem de valor e faseamento) e financiamento neutro em demanda.`
+          `- Burdens: ${D.burdensGov?.[0] || 'apresento burdens com números e execução'}; ${D.burdensGov?.[1] || 'demonstro financiabilidade'} (ex.: ${D.govCosts?.[0] ?? 'custos administrativos reduzidos'}).`,
+          `- Financiamento: ${(D.govFunding || []).join('; ') || 'reformas tributárias e ajustes calibrados'}; trade-offs explícitos e compensações à baixa renda.`,
+          `- Framing: ${D.framingGov || 'bem-estar líquido com sustentabilidade fiscal'}; simplicidade reduz custos administrativos (${D.govCosts?.[1] ?? 'queda de custos administrativos'}).`,
+          `- Argumento 1: ${D.govArgs?.[0] || 'UBI corrige falhas de focalização'} (impactos: ${D.govImpacts?.[0] || 'redução de pobreza e insegurança'}); exemplos: ${(D.govExamples || []).join('; ') || 'pilotos e casos reais'}.`,
+          `- Argumento 2: ${D.govArgs?.[1] || 'UBI incentiva empreendedorismo'} (impactos: ${D.govImpacts?.[1] || 'ganhos de segurança e transições'}); ordem de grandeza: aumento de transições e empreendedorismo com rede de segurança.`,
+          `- Antecipação: a LO dirá ${D.oppArgs?.[1] || 'risco de desincentivo ao trabalho/inflação'}; respondo com guarda-corpos anti-inflação (calibragem de valor e faseamento) e financiamento neutro em demanda.`
         ],
         'Líder da Oposição': [
           `- Reoriento burdens: sustentabilidade fiscal e alocação eficiente; custo ~5–10% do PIB concorre com saúde/educação.`,
-          `- Refuto PM (focalização): ${D.oppArgs[2]} com ${D.oppAlternatives.join('; ')} alcança ${D.govImpacts[0]} com 1/3 do custo.`,
-          `- Refuto PM (trabalho/inflação): ${D.oppRisksNum.join('; ')}; riscos mais prováveis que ${D.govImpacts[1]}.`,
+          `- Refuto PM (focalização): ${D.oppArgs?.[2] || 'alternativa focalizada'} com ${(D.oppAlternatives || []).join('; ') || 'programas direcionados'} alcança ${D.govImpacts?.[0] || 'reduções de pobreza'} com 1/3 do custo.`,
+          `- Refuto PM (trabalho/inflação): ${(D.oppRisksNum || []).join('; ') || 'queda da oferta de trabalho e pressão inflacionária localizada'}; riscos mais prováveis que ${D.govImpacts?.[1] || 'ganhos de empreendedorismo'}.`,
           `- Métrica: ${'sustentabilidade fiscal e focalização'}; governo perde na comparação quando pesamos custo por impacto.`
         ],
         'Vice-Primeiro Ministro': [
           `- Organizo mecanismo: elegibilidade universal, pagamentos digitais; comparo com LO e mostro redução de burocracia e fraudes.`,
           `- Plano de financiamento faseado: início com valor modesto; revisão periódica; proteção anti-regressividade.`,
-          `- Argumento novo: ${D.govArgs[2]} (impactos: ${D.govImpacts[2]}); exemplos de simplificação e economia administrativa.`,
+          `- Argumento novo: ${D.govArgs?.[2] || 'simplificação do welfare e redução de custos'} (impactos: ${D.govImpacts?.[2] || 'melhor experiência cidadã e menor fraude'}); exemplos de simplificação e economia administrativa.`,
           `- Métrica: bem-estar líquido > custos; guardo a sala com comparações diretas contra LO.`
         ],
         'Vice-Líder da Oposição': [
-          `- Caso alternativo: ${D.oppAlternatives[0]} com cadastro robusto; ${D.oppAlternatives[1]}; impactos superiores em custo-benefício.`,
+          `- Caso alternativo: ${D.oppAlternatives?.[0] || 'imposto de renda negativo/transferências focalizadas'} com cadastro robusto; ${D.oppAlternatives?.[1] || 'crédito tributário ao trabalho e serviços públicos'}; impactos superiores em custo-benefício.`,
           `- Prioridade de impactos: protejo saúde/educação de cortes; comparo diretamente com PM/DPM.`,
           `- Métrica: sustentabilidade fiscal e direcionamento decidem o round.`
         ],
