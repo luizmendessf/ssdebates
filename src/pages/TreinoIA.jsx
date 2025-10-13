@@ -40,6 +40,7 @@ export default function TreinoIA() {
   const [bulletsLoading, setBulletsLoading] = useState(false);
   const [bulletsError, setBulletsError] = useState('');
   const [bulletsText, setBulletsText] = useState('');
+  const [bulletsCache, setBulletsCache] = useState({});
 
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
@@ -177,6 +178,13 @@ export default function TreinoIA() {
       if (idx === 0) {
         // Não há discursos anteriores para PM
         setBulletsText('### Aviso\n- Você fala primeiro nesta moção; não há discursos anteriores.');
+        setBulletsLoading(false);
+        return;
+      }
+      const cacheKey = `${motion.position}::${motion.text}::${motion.infoslide || ''}`;
+      if (bulletsCache[cacheKey]) {
+        setBulletsText(bulletsCache[cacheKey]);
+        setBulletsLoading(false);
         return;
       }
       const response = await fetch('/api/generateBullets', {
@@ -187,6 +195,7 @@ export default function TreinoIA() {
       const data = await response.json();
       if (!response.ok) { throw new Error(data.error || 'Falha ao gerar bullets.'); }
       setBulletsText(data.bullets);
+      setBulletsCache(prev => ({ ...prev, [cacheKey]: data.bullets }));
     } catch (e) {
       setBulletsError('Não foi possível gerar os bullet points. Tente novamente.');
     } finally {
