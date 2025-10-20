@@ -190,7 +190,7 @@
 /* --- MEDIA QUERIES PARA TELAS MENORES --- */
 @media (max-width: 768px) {
   .bp-page .hero-section {
-    padding-top: 120px;
+    padding-top: 140px;
     padding-bottom: 60px;
   }
   
@@ -216,14 +216,14 @@
   }
   
   .bp-page .main-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     text-align: left;
   }
 }
 
 @media (max-width: 480px) {
   .bp-page .hero-section {
-    padding-top: 100px;
+    padding-top: 140px;
     padding-bottom: 40px;
   }
   
@@ -232,7 +232,7 @@
   }
   
   .bp-page .main-title {
-    font-size: 2rem;
+    font-size: 2.4rem;
     text-align: left;
   }
   
