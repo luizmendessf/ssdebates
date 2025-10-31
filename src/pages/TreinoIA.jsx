@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './TreinoIA.css';
+import rawMotions from '../motions.json';
 
 // --- Constantes ---
-const motions = [
-  { text: "Esta casa proibiria a publicidade direcionada com base em dados pessoais.", infoslide: "Publicidade direcionada refere-se a anúncios personalizados baseados no histórico de navegação e dados do usuário." },
-  { text: "Esta casa acredita que o direito ao voto deveria ser obrigatório.", infoslide: "Moção sem infoslide." },
-  { text: "Esta casa implementaria uma renda básica universal.", infoslide: "Renda básica universal é um pagamento periódico do governo a todos os cidadãos, sem condições." },
-  { text: "Esta casa acredita que a exploração espacial privada traz mais malefícios do que benefícios.", infoslide: "Moção sem infoslide." },
-];
+// Normaliza o formato de motions.json para { text, infoslide }
+const motions = (Array.isArray(rawMotions) ? rawMotions : []).map(m => ({
+  text: m['Moção'],
+  infoslide: m['InfoSlide']
+}));
 const allPositions = [
   "Primeiro Ministro", "Líder da Oposição", 
   "Vice-Primeiro Ministro", "Vice-Líder da Oposição",

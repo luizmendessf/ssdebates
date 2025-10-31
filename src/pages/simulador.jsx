@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './simulador.css';
-import motions from '../motions.json';
+import rawMotions from '../motions.json';
+// Normaliza o formato de motions.json para { motion, infoslide }
+const motions = (Array.isArray(rawMotions) ? rawMotions : []).map(m => ({
+  motion: m['Moção'],
+  infoslide: m['InfoSlide']
+}));
 
 // Componente do painel de moção (MotionDisplay)
 const MotionDisplay = ({ motion, infoslide, onSortear, hasMotion, onClose, onSaveMotion }) => {

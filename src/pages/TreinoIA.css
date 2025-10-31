@@ -19,7 +19,7 @@
   max-width: 1200px;
   width: 100%;
   position: relative;
-  z-index: 1;
+  z-index: auto; /* remove stacking context para permitir overlay acima da topbar */
 }
 
 /* --- LUZES DE FUNDO --- */
@@ -270,7 +270,7 @@
   padding-top: 100px;
   padding-bottom: 24px;
   overflow-y: auto;
-  z-index: 50;
+  z-index: 1100; /* acima da topbar (z-index: 1000) */
 }
 
 .bullets-card {
@@ -328,6 +328,8 @@
 .bullets-section li {
   margin-bottom: 6px;
   color: #334155;
+  /* Evita overflow horizontal em textos longos no mobile */
+  overflow-wrap: anywhere;
 }
 
 .motion-panel-controls .sim-button {
@@ -608,5 +610,28 @@
   }
   .time-text {
     font-size: 2.5rem;
+  }
+}
+
+/* --- Responsividade específica do overlay de bullets --- */
+@media (max-width: 768px) {
+  .bullets-card {
+    width: 96vw;
+    padding: 16px;
+    max-height: calc(100vh - 80px);
+  }
+  .bullets-content {
+    grid-template-columns: 1fr; /* Uma coluna no mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .bullets-overlay {
+    padding-top: 24px;
+    padding-bottom: 16px;
+    align-items: center; /* Centraliza o card no mobile */
+  }
+  .bullets-card {
+    border-radius: 16px;
   }
 }
