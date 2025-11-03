@@ -190,7 +190,8 @@
 /* --- MEDIA QUERIES PARA TELAS MENORES --- */
 @media (max-width: 768px) {
   .bp-page .hero-section {
-    padding-top: 120px;
+    /* Aumenta o espaçamento para não ficar sob a topbar fixa */
+    padding-top: 180px;
     padding-bottom: 50px;
   }
   
@@ -242,7 +243,8 @@
 
 @media (max-width: 480px) {
   .bp-page .hero-section {
-    padding-top: 220px;
+    /* Maior folga em telas pequenas devido à altura da topbar */
+    padding-top: 260px;
     padding-bottom: 140px;
   }
   
@@ -278,7 +280,8 @@
 /* Media query adicional para telas muito pequenas */
 @media (max-width: 360px) {
   .bp-page .hero-section {
-    padding-top: 80px;
+    /* Em telas muito pequenas, garantir folga suficiente abaixo da topbar */
+    padding-top: 140px;
     padding-bottom: 30px;
   }
   
