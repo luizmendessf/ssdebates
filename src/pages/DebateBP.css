@@ -190,12 +190,17 @@
 /* --- MEDIA QUERIES PARA TELAS MENORES --- */
 @media (max-width: 768px) {
   .bp-page .hero-section {
-    padding-top: 140px;
-    padding-bottom: 60px;
+    padding-top: 120px;
+    padding-bottom: 50px;
   }
   
   .bp-page .hero-content {
     gap: 32px;
+    text-align: center;
+  }
+  
+  .bp-page .hero-text {
+    text-align: center;
   }
   
   .bp-page .hero-pdf {
@@ -216,15 +221,29 @@
   }
   
   .bp-page .main-title {
-    font-size: 2.8rem;
-    text-align: left;
+    font-size: 2.5rem;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  
+  .bp-page .subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 100%;
+    line-height: 1.6;
+    margin: 0 auto;
+  }
+  
+  .bp-page .container {
+    padding: 0 20px;
   }
 }
 
 @media (max-width: 480px) {
   .bp-page .hero-section {
-    padding-top: 140px;
-    padding-bottom: 40px;
+    padding-top: 220px;
+    padding-bottom: 140px;
   }
   
   .bp-page .hero-content {
@@ -232,15 +251,54 @@
   }
   
   .bp-page .main-title {
-    font-size: 2.4rem;
-    text-align: left;
+    font-size: 2.2rem;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 16px;
   }
   
+  .bp-page .subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  
+
+  
   .bp-page .pdf-button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 0.9rem;
   }
+  
+  .bp-page .container {
+    padding: 0 16px;
+  }
 }
+
+/* Media query adicional para telas muito pequenas */
+@media (max-width: 360px) {
+  .bp-page .hero-section {
+    padding-top: 80px;
+    padding-bottom: 30px;
+  }
+  
+  .bp-page .main-title {
+    font-size: 1.9rem;
+    margin-bottom: 12px;
+  }
+  
+  .bp-page .subtitle {
+    font-size: 0.95rem;
+  }
+  
+
+  
+  .bp-page .hero-content {
+    gap: 28px;
+  }
+}
+
+
 
 /* --- ORADORES --- */
 .speakers-grid {
@@ -312,7 +370,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: 1;
 }
 
 .bp-page .light {
