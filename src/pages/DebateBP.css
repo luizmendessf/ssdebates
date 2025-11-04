@@ -62,11 +62,14 @@
   margin-bottom: 1.5rem;
 }
 
-/* --- HERO SECTION --- */
-.bp-page .hero-section {
-  /* CORREÇÃO: Aumentado o padding-top para não invadir o header */
-  padding-top: 160px;
+/* --- HERO SECTION --- */.bp-page .hero-section {
+  /* Espaçamento otimizado abaixo da topbar (inclui safe-area do iPhone) */
+  padding-top: calc(120px + constant(safe-area-inset-top));
+  padding-top: calc(120px + env(safe-area-inset-top));
   padding-bottom: 80px;
+  /* Neutraliza estilos globais de .hero-section (home) */
+  display: block;
+  height: auto;
 }
 
 .bp-page .hero-content {
@@ -75,7 +78,8 @@
   align-items: center;
   gap: 48px; /* Espaçamento entre texto e PDF em mobile */
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  overflow: hidden;
 }
 
 /* Layout para telas maiores */
@@ -191,7 +195,8 @@
 @media (max-width: 768px) {
   .bp-page .hero-section {
     /* Aumenta o espaçamento para não ficar sob a topbar fixa */
-    padding-top: 180px;
+    padding-top: calc(140px + constant(safe-area-inset-top));
+    padding-top: calc(140px + env(safe-area-inset-top));
     padding-bottom: 50px;
   }
   
@@ -244,7 +249,8 @@
 @media (max-width: 480px) {
   .bp-page .hero-section {
     /* Maior folga em telas pequenas devido à altura da topbar */
-    padding-top: 260px;
+    padding-top: calc(170px + constant(safe-area-inset-top));
+    padding-top: calc(170px + env(safe-area-inset-top));
     padding-bottom: 140px;
   }
   
@@ -281,7 +287,8 @@
 @media (max-width: 360px) {
   .bp-page .hero-section {
     /* Em telas muito pequenas, garantir folga suficiente abaixo da topbar */
-    padding-top: 140px;
+    padding-top: calc(110px + constant(safe-area-inset-top));
+    padding-top: calc(110px + env(safe-area-inset-top));
     padding-bottom: 30px;
   }
   
@@ -373,7 +380,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 2;
+  overflow: visible;
 }
 
 .bp-page .light {
@@ -389,7 +397,7 @@
   background-color: var(--blue-primary-color);
   width: 500px;
   height: 500px;
-  top: -10%;
+  top: 0%;
   left: -10%;
   animation-delay: 0s;
 }
@@ -397,10 +405,10 @@
 .bp-page .lightsim-2 {
   background-color: var(--green-primary-color);
   width: 400px;
-  height: 400px;
-  bottom: -15%;
+  height: 250px;
+  bottom: -22%;
   right: 10%;
-  animation-delay: -8s;
+  animation-delay: -2s;
 }
 
 .bp-page .lightsim-3 {
